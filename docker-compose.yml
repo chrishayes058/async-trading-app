@@ -1,0 +1,9 @@
+services:
+  telegram_bot:
+    image: apps/alpaca-trading-app
+    env_file:
+      - .env
+  
+networks:
+  default:
+    name: apps
