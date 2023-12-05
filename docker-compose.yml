@@ -1,5 +1,5 @@
 services:
-  telegram_bot:
+  alpaca_trading_app:
     image: apps/alpaca-trading-app
     env_file:
       - .env
