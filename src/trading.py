@@ -6,6 +6,8 @@ from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.enums import OrderSide, TimeInForce
 
+from models import Stock
+
 API_KEY = os.environ.get("API_KEY")
 API_SECRET = os.environ.get("API_SECRET")
 
@@ -15,11 +17,11 @@ def create_client():
     return trading_client
 
 
-async def buy_stock(trading_client: TradingClient):
+async def buy_stock(trading_client: TradingClient, stock: Stock):
     loop = asyncio.get_event_loop()
     market_order_data = MarketOrderRequest(
-        symbol="SPY",
-        qty=0.023,
+        symbol=stock.name,
+        qty=stock.quantity,
         side=OrderSide.BUY,
         time_in_force=TimeInForce.DAY,
     )
