@@ -10,7 +10,7 @@ trading_client = create_client()
 
 @app.post("/buy")
 async def buy_stock_endpoint(stock: Stock):
-    result = await buy_stock(trading_client)
+    result = await buy_stock(trading_client, stock)
     return {"status": result}
 
 
